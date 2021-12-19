@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<title>Add Food</title>
+</head>
+<style>
+.flex-container {
+			background-color:#DCDCDC;
+			height: 50%;
+			width: 500px;
+			margin: auto;
+			padding: 20px;
+		}
+
+		.banner-area {
+			width: 100%;
+			height: 800px;
+		}
+		
+		input[type=text], select {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+		input[type=number], select {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #778899;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+</style>
+<body>
+    <nav th:replace="fragments/headerAdmin.html"></nav>
+
+    
+    
+     <div class="banner-area">
+
+<div class="flex-container">
+    
+<h4>Add Food</h4>
+<form action="#" th:action="@{/save}" th:object="${food}">
+Name: <input type ="text" th:field ="*{name}"/><br/>
+Price: <input type ="text" th:field ="*{price}"/><br/>
+Type: <input type ="text" th:field ="*{type}"/><br/>
+<input type ="submit" value="Add Food">
+</form>
+</div>
+</div>
+</body>
+</html>

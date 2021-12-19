@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<title>Registration</title>
+</head>
+<body>
+<header>
+        <h1><a th:href="@{/user}">Dinos Grocery Store</a></h1>
+        <nav>
+            <a th:href="@{/login}">Login</a>
+            <a th:href="@{/register}">Registration</a>
+            <a th:href="@{/guest}">Guest</a>
+        </nav>
+    </header>
+    
+     <div class="banner-area">
+
+<div class="flex-container">
+<h4>Registration Page!!!</h4>
+
+<form th:action="@{/register}" method="post">
+Name:<input type = "text" name = "name"/><br>
+Password:<input type = "password" name = "password"/><br>
+<input type ="submit" value="Register"/>
+</form>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<style>
+.center{
+text-align: center;
+}
+</style>
+<title>View Foods</title>
+</head>
+<body>
+    <nav th:replace="fragments/headerAdmin.html"></nav>
+<a th:href="@{/addFood}" class="center">Add Food</a><br>
+
+<div class="container mt-5">
+<table class="table">
+	<thead class="thead-dark">
+ <tr>
+   <th>Name</th>
+   <th>Price</th>
+   <th>Type</th>
+   <th>Edit</th>
+    <th>Delete</th>
+ </tr>
+  </thead>
+	 <tbody>
+  <tr th:each="food : ${foods}">
+  		<td th:text="${food.name}"></td>
+        <td th:text="${food.price}"></td>
+        <td th:text="${food.type}"></td>
+        <td style="display:none;" th:text="${food.quantity}"></td>
+        <td><a href="" th:href="@{/edit/{id}(id=${food.id})}">EDIT</a></td>
+        <td><a href="" th:href="@{/delete/{id}(id=${food.id})}">DELETE</a></td>        
+  </tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

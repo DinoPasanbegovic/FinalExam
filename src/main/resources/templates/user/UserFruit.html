@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height:300px;
+}
+</style>
+<title>Fruit</title>
+</head>
+<body>
+    <nav th:replace="fragments/headerUser.html"></nav>
+
+
+<div sec:authorize="isAuthenticated()">
+		
+		Signed In As: <span sec:authentication="name"></span>
+		
+	</div>
+		<div class="container mt-5">
+<div class="card bg-dark text-black">
+  <img src="https://image.freepik.com/free-photo/banner-from-various-fruits-isolated-white_169521-20.jpg" alt="fruit">
+  <div class="card-img-overlay">
+    <h5 class="card-title">Fruit</h5>
+    <p class="card-text">Add our fresh fruit anytime!</p>
+    <p class="card-text">Members get 10%!</p>
+  </div>
+</div>
+</div>
+	
+<div class="container mt-5">
+<table class="table">
+	<thead class="thead-dark">
+ <tr>
+   <th>Name</th>
+   <th>Price</th>
+   <th>Buy</th> 
+ 	 </tr>
+	 </thead>
+	 <tbody>
+  <tr th:each="food : ${fruit}">
+  		<td th:text="${food.name}"></td>
+        <td th:text="${food.price}"></td>
+        <td><a href="" th:href="@{/cart/{id}(id=${food.id})}">Add To Cart</a></td>
+  </tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

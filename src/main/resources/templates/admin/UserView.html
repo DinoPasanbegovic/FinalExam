@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<style>
+.center{
+text-align: center;
+}
+</style>
+<title>View Users</title>
+</head>
+
+<body>
+    <nav th:replace="fragments/headerAdmin.html"></nav>
+<a th:href="@{/register}" class="center">Add User</a><br>
+
+<div class="container mt-5">
+<table class="table">
+	<thead class="thead-dark"> 
+	<tr>
+   <th>Id</th>
+   <th>Username</th>
+   <th>Edit</th>
+   <th>Delete</th>
+ </tr>
+</thead>
+	 <tbody>
+  <tr th:each="user : ${urs}">
+    	<td th:text="${user.userId}"></td>
+  		<td th:text="${user.UserName}"></td>
+  		<td><a href="" th:href="@{/admin/editUser/{id}(id=${user.userId})}">EDIT</a></td>      
+        <td><a href="" th:href="@{/admin/deleteUser/{id}(id=${user.userId})}">DELETE</a></td>      
+  </tr>
+ </tbody>
+</table>
+</div>
+</body>
+</html>

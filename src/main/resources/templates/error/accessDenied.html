@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<title>Insert title here</title>
+</head>
+<body>
+<header>
+<div sec:authorize="isAuthenticated()">
+            <div class= "logout">
+			<form th:action="@{/logout}" method="post" >
+			<label class="logoutLblPos"></label>
+				<input type="submit" value="Logout" />
+			</form>
+			</div>
+            </div>
+        <h1>Admins Only</h1>
+        <nav>
+            <a th:href="@{/user}">Home</a>
+        </nav>
+    </header>
+</body>
+</html>
